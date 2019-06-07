@@ -11,7 +11,7 @@ example_no <- 6
 example_folder <- file.path(root_folder, paste0("example_", example_no))
 dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
 setwd(example_folder)
-set.seed(3141)
+set.seed(314)
 testit::assert(is_beast2_installed())
 phylogeny  <- ape::read.tree(
   text = "(((A:8, B:8):1, C:9):1, ((D:8, E:8):1, F:9):1);"
