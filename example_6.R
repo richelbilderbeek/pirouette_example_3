@@ -1,15 +1,10 @@
 # Code of example 6
 #
 # Works under Linux and MacOS only
-library(pirouette)
-suppressMessages(library(ggplot2))
-suppressMessages(library(ggtree))
 
+# Set the RNG seed
 rng_seed <- 314
 args <- commandArgs(trailingOnly = TRUE)
-#print(args)
-#print(length(args))
-
 if (length(args) == 1) {
   arg <- suppressWarnings(as.numeric(args[1]))
   if (is.na(arg)) {
@@ -29,18 +24,19 @@ if (length(args) > 1) {
     "Number of arguments given: ", length(args) - 1
   )
 }
-print(rng_seed)
-exit()
 
+library(pirouette)
+suppressMessages(library(ggplot2))
+suppressMessages(library(ggtree))
 
 root_folder <- getwd()
 example_no <- 6
 example_folder <- file.path(root_folder, paste0("example_", example_no))
 dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
 setwd(example_folder)
+set.seed(rng_seed)
 testit::assert(is_beast2_installed())
 
-set.seed(rng_seed)
 phylogeny  <- ape::read.tree(
   text = "(((A:8, B:8):1, C:9):1, ((D:8, E:8):1, F:9):1);"
 )
