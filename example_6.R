@@ -25,10 +25,6 @@ if (length(args) > 1) {
   )
 }
 
-print("rng_seed")
-print(rng_seed)
-stop("DONE")
-
 library(pirouette)
 suppressMessages(library(ggplot2))
 suppressMessages(library(ggtree))
