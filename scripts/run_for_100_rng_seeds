@@ -11,5 +11,5 @@ cd ..
 
 for i in $(seq 1 3);
 do
-  Rscript example_6.R $i
+  sbatch scripts/run_r_script example_6.R $i
 done
