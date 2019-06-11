@@ -5,21 +5,50 @@ library(pirouette)
 suppressMessages(library(ggplot2))
 suppressMessages(library(ggtree))
 
-#root_folder <- path.expand("~/GitHubs/pirouette_article")
+rng_seed <- 314
+args <- commandArgs(trailingOnly = TRUE)
+#print(args)
+#print(length(args))
+
+if (length(args) == 1) {
+  arg <- suppressWarnings(as.numeric(args[1]))
+  if (is.na(arg)) {
+    stop(
+      "Please supply a numerical value for the RNG seed. \n",
+      "Actual value: ", args[1]
+    )
+  }
+  rng_seed <- as.numeric(arg)
+  if (rng_seed < 1) {
+    stop("Please supply an RNG seed with a positive non-zero value")
+  }
+}
+if (length(args) > 1) {
+  stop(
+    "Please supply only 1 argument for the RNG seed. \n",
+    "Number of arguments given: ", length(args) - 1
+  )
+}
+print(rng_seed)
+exit()
+
+
 root_folder <- getwd()
 example_no <- 6
 example_folder <- file.path(root_folder, paste0("example_", example_no))
 dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
 setwd(example_folder)
-set.seed(314)
 testit::assert(is_beast2_installed())
+
+set.seed(rng_seed)
 phylogeny  <- ape::read.tree(
   text = "(((A:8, B:8):1, C:9):1, ((D:8, E:8):1, F:9):1);"
 )
 
 alignment_params <- create_alignment_params(
   root_sequence = create_blocked_dna(length = 1000),
-  mutation_rate = 0.1
+  mutation_rate = 0.1,
+  rng_seed = rng_seed
 )
 
 
@@ -30,11 +59,14 @@ generative_experiment <- create_experiment(
     run_if = "always",
     do_measure_evidence = TRUE
   ),
-  inference_model = create_inference_model(
-    site_model = create_jc69_site_model(),
-    clock_model = create_strict_clock_model(),
-    tree_prior = create_yule_tree_prior(),
-    mcmc = create_mcmc(chain_length = 10e+7, store_every = 1000)
+  inference_model = beautier::create_inference_model(
+    site_model = beautier::create_jc69_site_model(),
+    clock_model = beautier::create_strict_clock_model(),
+    tree_prior = beautier::create_yule_tree_prior(),
+    mcmc = beautier::create_mcmc(chain_length = 10e+7, store_every = 1000)
+  ),
+  beast2_options = beastier::create_beast2_options(
+    rng_seed = rng_seed
   )
 )
 generative_experiment <- create_gen_experiment()
@@ -65,7 +97,9 @@ if (beastier::is_on_ci()) {
 pir_params <- create_pir_params(
   alignment_params = alignment_params,
   experiments = experiments,
-  twinning_params = create_twinning_params()
+  twinning_params = create_twinning_params(
+    rng_seed = rng_seed
+  )
 )
 
 print("#######################################################################")
