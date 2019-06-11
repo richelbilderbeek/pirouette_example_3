@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# Run the script 100x in parallel on the Peregrine computer cluster
+#
+# Usage:
+#
+# ./run_for_100_rng_seeds
+#
