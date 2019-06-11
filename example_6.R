@@ -13,7 +13,7 @@ if (length(args) == 1) {
       "Actual value: ", args[1]
     )
   }
-  rng_seed <- as.numeric(arg)
+  rng_seed <- arg
   if (rng_seed < 1) {
     stop("Please supply an RNG seed with a positive non-zero value")
   }
@@ -24,6 +24,10 @@ if (length(args) > 1) {
     "Number of arguments given: ", length(args) - 1
   )
 }
+
+print("rng_seed")
+print(rng_seed)
+stop("DONE")
 
 library(pirouette)
 suppressMessages(library(ggplot2))
