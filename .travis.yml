@@ -51,8 +51,11 @@ before_script:
 script:
   - travis_wait 60 Rscript example_6.R
   # Check if all files are created
-  - if [ ! -f example_6/true_tree.png ]; then echo "File 'true_tree' not found" ; exit 1 ; fi
-  - if [ ! -f example_6/twin_tree.png ]; then echo "File 'twin_tree' not found" ; exit 1 ; fi
+  - if [ ! -f example_6/true_tree.png ]; then echo "File 'true_tree.png' not found" ; exit 1 ; fi
+  - if [ ! -f example_6/twin_tree.png ]; then echo "File 'twin_tree.png' not found" ; exit 1 ; fi
+  - if [ ! -f example_6/true_alignment.png ]; then echo "File 'true_alignment.png' not found" ; exit 1 ; fi
+  - if [ ! -f example_6/twin_alignment.png ]; then echo "File 'twin_alignment.png' not found" ; exit 1 ; fi
+  - if [ ! -f example_6/absent_tree.png ]; then echo "File 'absent_tree' not found AS IT SHOULD" ; exit 1 ; fi
   # Check dead links
   - rm .travis.yml
   - ./scripts/check_dead_links
