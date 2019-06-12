@@ -1,0 +1,16 @@
+<itsabeastystatewerein version='2.0' sample='10000000'>
+<statenode id='Tree.t:true'>(((0:0.8546984986934405,1:0.8546984986934405)7:0.046089595112541515,2:0.900788093805982)9:0.13027241764051367,((3:0.740832619882149,4:0.740832619882149)8:0.2005927934288828,5:0.9414254133110318)6:0.08963509813546389)10:0.0</statenode>
+<statenode id='popSize.t:true'>popSize.t:true[1 1] (-Infinity,Infinity): 3.2283437135852524 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"PopSizeScaler.t:true","p":0.75,"accept":6353,"reject":1633,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentConstantTreeScaler.t:true","p":0.5,"accept":1255,"reject":6816,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentConstantTreeRootScaler.t:true","p":0.5,"accept":1531,"reject":6351,"acceptFC":0,"rejectFC":0,"rejectIv":1671,"rejectOp":1671},
+{"id":"CoalescentConstantUniformOperator.t:true","p":"NaN","accept":24437,"reject":55681,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentConstantSubtreeSlide.t:true","p":1,"accept":8439,"reject":31405,"acceptFC":0,"rejectFC":0,"rejectIv":9984,"rejectOp":9984},
+{"id":"CoalescentConstantNarrow.t:true","p":"NaN","accept":16257,"reject":23748,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentConstantWide.t:true","p":"NaN","accept":1146,"reject":6859,"acceptFC":0,"rejectFC":0,"rejectIv":4471,"rejectOp":4471},
+{"id":"CoalescentConstantWilsonBalding.t:true","p":"NaN","accept":547,"reject":7542,"acceptFC":0,"rejectFC":0,"rejectIv":3894,"rejectOp":3894}
+]}
+-->
