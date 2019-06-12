@@ -1,10 +1,10 @@
 #!/bin/bash
 #
-# Run the script 100x in parallel on the Peregrine computer cluster
+# Run the script 3x in parallel on the Peregrine computer cluster
 #
 # Usage:
 #
-# ./run_for_100_rng_seeds
+# ./run_for_3_rng_seeds
 #
 
 cd ..

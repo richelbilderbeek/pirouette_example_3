@@ -60,9 +60,6 @@ generative_experiment <- create_experiment(
     clock_model = beautier::create_strict_clock_model(),
     tree_prior = beautier::create_yule_tree_prior(),
     mcmc = beautier::create_mcmc(chain_length = 10e+7, store_every = 1000)
-  ),
-  beast2_options = beastier::create_beast2_options(
-    rng_seed = rng_seed
   )
 )
 generative_experiment <- create_gen_experiment()
@@ -75,6 +72,12 @@ candidate_experiments <- create_all_experiments(
 check_experiments(candidate_experiments)
 
 experiments <- c(list(generative_experiment), candidate_experiments)
+
+# Set the RNG seed
+for (i in seq_along(experiments)) {
+  experiments[[i]]$beast2_options$rng_seed <- rng_seed
+}
+
 check_experiments(experiments)
 
 # Testing
