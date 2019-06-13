@@ -32,13 +32,15 @@ name="alignment">
 <map name="OneOnX" >beast.math.distributions.OneOnX</map>
 
 
-<run id="mcmc" spec="beast.gss.NS" chainLength="10000000" particleCount="1" subChainLength="5000" epsilon="1e-12">
+<run id="mcmc" spec="MCMC" chainLength="10000000" storeEvery="1000">
     <state id="state" storeEvery="5000">
         <tree id="Tree.t:true" name="stateNode">
             <taxonset id="TaxonSet.true" spec="TaxonSet">
                 <alignment idref="true"/>
             </taxonset>
         </tree>
+        <parameter id="ucldStdev.c:true" lower="0.0" name="stateNode">0.1</parameter>
+        <stateNode id="rateCategories.c:true" spec="parameter.IntegerParameter" dimension="10">1</stateNode>
         <parameter id="ePopSize.t:true" name="stateNode">0.3</parameter>
         <parameter id="growthRate.t:true" name="stateNode">3.0E-4</parameter>
     </state>
@@ -64,6 +66,12 @@ name="alignment">
                     <parameter id="RealParameter.201" estimate="false" name="scale">1</parameter>
                 </LaplaceDistribution>
             </prior>
+            <prior id="ucldStdevPrior.c:true" name="distribution" x="@ucldStdev.c:true">
+                <Gamma id="Gamma.0" name="distr">
+                    <parameter id="RealParameter.0" estimate="false" name="alpha">0.5396</parameter>
+                    <parameter id="RealParameter.1" estimate="false" name="beta">0.3819</parameter>
+                </Gamma>
+            </prior>
         </distribution>
         <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
             <distribution id="treeLikelihood.true" spec="ThreadedTreeLikelihood" data="@true" tree="@Tree.t:true">
@@ -73,8 +81,11 @@ name="alignment">
                     <parameter id="proportionInvariant.s:true" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
                     <substModel id="JC69.s:true" spec="JukesCantor"/>
                 </siteModel>
-                <branchRateModel id="StrictClock.c:true" spec="beast.evolution.branchratemodel.StrictClockModel">
-                    <parameter id="clockRate.c:true" estimate="false" name="clock.rate">1.0</parameter>
+                <branchRateModel id="RelaxedClock.c:true" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" rateCategories="@rateCategories.c:true" tree="@Tree.t:true">
+                    <LogNormal id="LogNormalDistributionModel.c:true" S="@ucldStdev.c:true" meanInRealSpace="true" name="distr">
+                        <parameter id="RealParameter.2" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
+                    </LogNormal>
+                    <parameter id="ucldMean.c:true" estimate="false" name="clock.rate">1.0</parameter>
                 </branchRateModel>
             </distribution>
         </distribution>
@@ -98,12 +109,22 @@ name="alignment">
 
     <operator id="CoalescentExponentialWilsonBalding.t:true" spec="WilsonBalding" tree="@Tree.t:true" weight="3.0"/>
 
+    <operator id="ucldStdevScaler.c:true" spec="ScaleOperator" parameter="@ucldStdev.c:true" scaleFactor="0.5" weight="3.0"/>
+
+    <operator id="CategoriesRandomWalk.c:true" spec="IntRandomWalkOperator" parameter="@rateCategories.c:true" weight="10.0" windowSize="1"/>
+
+    <operator id="CategoriesSwapOperator.c:true" spec="SwapOperator" intparameter="@rateCategories.c:true" weight="10.0"/>
+
+    <operator id="CategoriesUniform.c:true" spec="UniformOperator" parameter="@rateCategories.c:true" weight="10.0"/>
+
     <logger id="tracelog" fileName="true.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
         <log idref="posterior"/>
         <log idref="likelihood"/>
         <log idref="prior"/>
         <log idref="treeLikelihood.true"/>
         <log id="TreeHeight.t:true" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:true"/>
+        <log idref="ucldStdev.c:true"/>
+        <log id="rate.c:true" spec="beast.evolution.branchratemodel.RateStatistic" branchratemodel="@RelaxedClock.c:true" tree="@Tree.t:true"/>
         <log idref="CoalescentExponential.t:true"/>
         <log idref="ePopSize.t:true"/>
         <log idref="growthRate.t:true"/>
@@ -117,7 +138,7 @@ name="alignment">
     </logger>
 
     <logger id="treelog.t:true" fileName="$(tree).trees" logEvery="1000" mode="tree">
-        <log id="TreeWithMetaDataLogger.t:true" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:true"/>
+        <log id="TreeWithMetaDataLogger.t:true" spec="beast.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:true" tree="@Tree.t:true"/>
     </logger>
 
 </run>
