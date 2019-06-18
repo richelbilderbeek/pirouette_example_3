@@ -123,12 +123,10 @@ if (!is_one_na(pir_params$twinning_params)) {
 }
 rm_pir_param_files(pir_params)
 
-Sys.time()
 errors <- pir_run(
   phylogeny,
   pir_params = pir_params
 )
-Sys.time()
 
 utils::write.csv(
   x = errors,
@@ -137,7 +135,7 @@ utils::write.csv(
 )
 
 pir_plot(errors) +
-  ggsave(file.path(example_folder, "errors.png"))
+  ggsave(file.path(example_folder, "errors.png"), width = 7, height = 7)
 
 pir_to_pics(
   phylogeny = phylogeny,
