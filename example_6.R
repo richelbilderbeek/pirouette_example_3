@@ -134,14 +134,6 @@ errors <- pir_run(
 )
 Sys.time()
 
-if (1 == 2) {
-  errors <- utils::read.csv(
-    file = file.path(example_folder, "errors.csv")
-  )
-  check_pir_out(errors)
-  pir_plot(pir_out = errors)
-}
-
 utils::write.csv(
   x = errors,
   file = file.path(example_folder, "errors.csv"),
@@ -151,9 +143,6 @@ utils::write.csv(
 pir_plot(errors) +
   ggsave(file.path(example_folder, "errors.png"))
 
-print("#######################################################################")
-print("Appendix")
-print("#######################################################################")
 pir_to_pics(
   phylogeny = phylogeny,
   pir_params = pir_params,
