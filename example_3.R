@@ -97,6 +97,7 @@ pir_params <- create_pir_params(
   alignment_params = alignment_params,
   experiments = experiments,
   twinning_params = create_twinning_params(
+    twin_model = "birth_death",
     rng_seed = rng_seed
   )
 )
