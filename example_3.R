@@ -3,7 +3,7 @@
 # Works under Linux and MacOS only
 
 # Set the RNG seed
-rng_seed <- 42
+rng_seed <- 314
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) == 1) {
   arg <- suppressWarnings(as.numeric(args[1]))
