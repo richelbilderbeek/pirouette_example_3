@@ -42,7 +42,6 @@ phylogeny  <- ape::read.tree(
 
 alignment_params <- create_alignment_params(
   root_sequence = create_blocked_dna(length = 1000),
-  mutation_rate = 0.1,
   rng_seed = rng_seed
 )
 
