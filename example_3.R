@@ -47,19 +47,6 @@ alignment_params <- create_alignment_params(
 
 
 # JC69, strict, Yule
-generative_experiment <- create_experiment(
-  inference_conditions = create_inference_conditions(
-    model_type = "generative",
-    run_if = "always",
-    do_measure_evidence = TRUE
-  ),
-  inference_model = beautier::create_inference_model(
-    site_model = beautier::create_jc69_site_model(),
-    clock_model = beautier::create_strict_clock_model(),
-    tree_prior = beautier::create_yule_tree_prior(),
-    mcmc = beautier::create_mcmc(chain_length = 10e+7, store_every = 1000)
-  )
-)
 generative_experiment <- create_gen_experiment()
 check_experiment(generative_experiment)
 
@@ -96,13 +83,10 @@ pir_params <- create_pir_params(
   experiments = experiments,
   twinning_params = create_twinning_params(
     rng_seed_twin_tree = rng_seed,
-    rng_seed_twin_alignment = rng_seed,
-    twin_model = "birth_death"
+    rng_seed_twin_alignment = rng_seed
   )
 )
 
-# Make Peregrine friendly
-pir_params <- peregrine::to_pff_pir_params(pir_params)
 rm_pir_param_files(pir_params)
 
 errors <- pir_run(
