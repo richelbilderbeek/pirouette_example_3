@@ -59,11 +59,6 @@ for (i in seq_along(experiments)) {
   experiments[[i]]$beast2_options$rng_seed <- rng_seed
 }
 
-# Shorter MCMC chain
-for (i in seq_along(experiments)) {
-  experiments[[i]]$inference_model$mcmc$chain_length <- 100000
-}
-
 check_experiments(experiments)
 
 # Testing

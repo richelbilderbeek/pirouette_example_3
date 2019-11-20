@@ -1,19 +1,23 @@
-% latex table generated in R 3.6.0 by xtable 1.8-4 package
-% Mon Aug 19 11:04:35 2019
+% latex table generated in R 3.6.1 by xtable 1.8-4 package
+% Wed Nov 20 09:51:01 2019
 \begin{table}[ht]
 \centering
 \begin{tabular}{ll}
   \hline
 parameter & ESS \\ 
   \hline
-posterior & 10001 \\ 
-  likelihood & 10001 \\ 
-  prior & 8292 \\ 
-  treeLikelihood & 10001 \\ 
-  TreeHeight & 10001 \\ 
-  CoalescentExponential & 9435 \\ 
-  ePopSize & 7373 \\ 
-  growthRate & 9001 \\ 
+posterior & 9429 \\ 
+  likelihood & 9905 \\ 
+  prior & 2381 \\ 
+  treeLikelihood & 9905 \\ 
+  TreeHeight & 2349 \\ 
+  ucldStdev & 1227 \\ 
+  rate.mean & 2798 \\ 
+  rate.variance & 1274 \\ 
+  rate.coefficientOfVariation & 1327 \\ 
+  CoalescentExponential & 8443 \\ 
+  ePopSize & 4913 \\ 
+  growthRate & 5706 \\ 
    \hline
 \end{tabular}
 \caption{ESSes for best candidate model, twin tree} 
