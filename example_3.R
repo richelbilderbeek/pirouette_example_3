@@ -83,7 +83,7 @@ twinning_params <- create_twinning_params(
     max_n_tries = 1000
   ),
   twin_tree_filename = "twin_tree.newick",
-  twin_alignment_filename = "twin_alignment.fasta",
+  twin_alignment_filename = "twin_alignment.fas",
   twin_evidence_filename = "twin_evidence.csv"
 )
 
