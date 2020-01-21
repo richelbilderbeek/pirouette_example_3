@@ -1,0 +1,18 @@
+<itsabeastystatewerein version='2.0' sample='10000000'>
+<statenode id='Tree.t:twin_alignment'>(((0:0.17293089646374,1:0.17293089646374)6:0.5623627880261228,2:0.7352936844898628)8:0.4898496043369409,((3:0.07817660543286338,4:0.07817660543286338)9:0.10555667623518598,5:0.18373328166804936)7:1.0414100071587544)10:0.0</statenode>
+<statenode id='ePopSize.t:twin_alignment'>ePopSize.t:twin_alignment[1 1] (0.0,Infinity): 0.539382232595494 </statenode>
+<statenode id='growthRate.t:twin_alignment'>growthRate.t:twin_alignment[1 1] (-Infinity,Infinity): 0.5096474336252821 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"ePopSizeScaler.t:twin_alignment","p":0.2210807480435866,"accept":105201,"reject":278752,"acceptFC":104279,"rejectFC":278533,"rejectIv":0,"rejectOp":0},
+{"id":"GrowthRateRandomWalk.t:twin_alignment","p":4.746007735808241,"accept":97795,"reject":287529,"acceptFC":97000,"rejectFC":287243,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentExponentialTreeScaler.t:twin_alignment","p":0.7668523621803439,"accept":74057,"reject":311381,"acceptFC":73980,"rejectFC":310338,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentExponentialTreeRootScaler.t:twin_alignment","p":0.58907445622069,"accept":86812,"reject":297664,"acceptFC":86615,"rejectFC":296738,"rejectIv":14729,"rejectOp":14729},
+{"id":"CoalescentExponentialUniformOperator.t:twin_alignment","p":"NaN","accept":332782,"reject":3510783,"acceptFC":331801,"rejectFC":3500695,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentExponentialSubtreeSlide.t:twin_alignment","p":0.23517730278907523,"accept":285329,"reject":1638957,"acceptFC":285073,"rejectFC":1633677,"rejectIv":362494,"rejectOp":362494},
+{"id":"CoalescentExponentialNarrow.t:twin_alignment","p":"NaN","accept":2,"reject":1921919,"acceptFC":0,"rejectFC":1916342,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentExponentialWide.t:twin_alignment","p":"NaN","accept":1,"reject":385944,"acceptFC":0,"rejectFC":384811,"rejectIv":214796,"rejectOp":214796},
+{"id":"CoalescentExponentialWilsonBalding.t:twin_alignment","p":"NaN","accept":0,"reject":385093,"acceptFC":0,"rejectFC":384031,"rejectIv":188003,"rejectOp":188003}
+]}
+-->
