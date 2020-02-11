@@ -1,18 +1,26 @@
 <itsabeastystatewerein version='2.0' sample='10000000'>
-<statenode id='Tree.t:twin_alignment'>(((0:0.17293089646374,1:0.17293089646374)6:0.5623627880261228,2:0.7352936844898628)8:0.4898496043369409,((3:0.07817660543286338,4:0.07817660543286338)9:0.10555667623518598,5:0.18373328166804936)7:1.0414100071587544)10:0.0</statenode>
-<statenode id='ePopSize.t:twin_alignment'>ePopSize.t:twin_alignment[1 1] (0.0,Infinity): 0.539382232595494 </statenode>
-<statenode id='growthRate.t:twin_alignment'>growthRate.t:twin_alignment[1 1] (-Infinity,Infinity): 0.5096474336252821 </statenode>
+<statenode id='Tree.t:twin_alignment'>(((0:0.21850699052730427,1:0.21850699052730427)6:0.4782196148066785,2:0.6967266053339828)7:0.28588744671949506,((3:0.074289623768962,4:0.074289623768962)8:0.07491295289514671,5:0.14920257666410872)9:0.8334114753893691)10:0.0</statenode>
+<statenode id='kappa.s:twin_alignment'>kappa.s:twin_alignment[1 1] (0.0,Infinity): 0.8797599715689216 </statenode>
+<statenode id='freqParameter.s:twin_alignment'>freqParameter.s:twin_alignment[4 1] (0.0,1.0): 0.23649382276617018 0.25732764036369793 0.24585060985001309 0.2603279270201193 </statenode>
+<statenode id='ucldStdev.c:twin_alignment'>ucldStdev.c:twin_alignment[1 1] (0.0,Infinity): 1.442722761507174E-4 </statenode>
+<statenode id='rateCategories.c:twin_alignment'>rateCategories.c:twin_alignment[10 1] (0,9): 9 3 0 8 1 7 5 4 2 2 </statenode>
+<statenode id='birthRate.t:twin_alignment'>birthRate.t:twin_alignment[1 1] (-Infinity,Infinity): 2.609040552445221 </statenode>
 </itsabeastystatewerein>
 <!--
 {"operators":[
-{"id":"ePopSizeScaler.t:twin_alignment","p":0.2210807480435866,"accept":105201,"reject":278752,"acceptFC":104279,"rejectFC":278533,"rejectIv":0,"rejectOp":0},
-{"id":"GrowthRateRandomWalk.t:twin_alignment","p":4.746007735808241,"accept":97795,"reject":287529,"acceptFC":97000,"rejectFC":287243,"rejectIv":0,"rejectOp":0},
-{"id":"CoalescentExponentialTreeScaler.t:twin_alignment","p":0.7668523621803439,"accept":74057,"reject":311381,"acceptFC":73980,"rejectFC":310338,"rejectIv":0,"rejectOp":0},
-{"id":"CoalescentExponentialTreeRootScaler.t:twin_alignment","p":0.58907445622069,"accept":86812,"reject":297664,"acceptFC":86615,"rejectFC":296738,"rejectIv":14729,"rejectOp":14729},
-{"id":"CoalescentExponentialUniformOperator.t:twin_alignment","p":"NaN","accept":332782,"reject":3510783,"acceptFC":331801,"rejectFC":3500695,"rejectIv":0,"rejectOp":0},
-{"id":"CoalescentExponentialSubtreeSlide.t:twin_alignment","p":0.23517730278907523,"accept":285329,"reject":1638957,"acceptFC":285073,"rejectFC":1633677,"rejectIv":362494,"rejectOp":362494},
-{"id":"CoalescentExponentialNarrow.t:twin_alignment","p":"NaN","accept":2,"reject":1921919,"acceptFC":0,"rejectFC":1916342,"rejectIv":0,"rejectOp":0},
-{"id":"CoalescentExponentialWide.t:twin_alignment","p":"NaN","accept":1,"reject":385944,"acceptFC":0,"rejectFC":384811,"rejectIv":214796,"rejectOp":214796},
-{"id":"CoalescentExponentialWilsonBalding.t:twin_alignment","p":"NaN","accept":0,"reject":385093,"acceptFC":0,"rejectFC":384031,"rejectIv":188003,"rejectOp":188003}
+{"id":"YuleBirthRateScaler.t:twin_alignment","p":0.2067102647077518,"accept":79377,"reject":198449,"acceptFC":78439,"rejectFC":198291,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeScaler.t:twin_alignment","p":0.7660316426892395,"accept":50950,"reject":226539,"acceptFC":50863,"rejectFC":225510,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeRootScaler.t:twin_alignment","p":0.5657132966017009,"accept":44238,"reject":232782,"acceptFC":44082,"rejectFC":231817,"rejectIv":37746,"rejectOp":37746},
+{"id":"YuleModelUniformOperator.t:twin_alignment","p":"NaN","accept":283988,"reject":2488995,"acceptFC":282854,"rejectFC":2479022,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelSubtreeSlide.t:twin_alignment","p":0.26786275475553,"accept":159756,"reject":1225800,"acceptFC":159567,"rejectFC":1220546,"rejectIv":293533,"rejectOp":293533},
+{"id":"YuleModelNarrow.t:twin_alignment","p":"NaN","accept":8345,"reject":1378081,"acceptFC":8321,"rejectFC":1372718,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelWide.t:twin_alignment","p":"NaN","accept":241,"reject":276189,"acceptFC":237,"rejectFC":275090,"rejectIv":153541,"rejectOp":153541},
+{"id":"YuleModelWilsonBalding.t:twin_alignment","p":"NaN","accept":37,"reject":277135,"acceptFC":37,"rejectFC":275972,"rejectIv":136439,"rejectOp":136439},
+{"id":"KappaScaler.s:twin_alignment","p":0.5327826743119358,"accept":1916,"reject":7237,"acceptFC":1912,"rejectFC":7210,"rejectIv":0,"rejectOp":0},
+{"id":"FrequenciesExchanger.s:twin_alignment","p":0.03752437668361294,"accept":2543,"reject":6797,"acceptFC":2514,"rejectFC":6786,"rejectIv":0,"rejectOp":0},
+{"id":"ucldStdevScaler.c:twin_alignment","p":0.19438515370951376,"accept":83229,"reject":194016,"acceptFC":82496,"rejectFC":193595,"rejectIv":0,"rejectOp":0},
+{"id":"CategoriesRandomWalk.c:twin_alignment","p":"NaN","accept":504408,"reject":420634,"acceptFC":502459,"rejectFC":418985,"rejectIv":368263,"rejectOp":368263},
+{"id":"CategoriesSwapOperator.c:twin_alignment","p":"NaN","accept":678567,"reject":246094,"acceptFC":675753,"rejectFC":245114,"rejectIv":0,"rejectOp":0},
+{"id":"CategoriesUniform.c:twin_alignment","p":"NaN","accept":725011,"reject":198647,"acceptFC":722102,"rejectFC":197866,"rejectIv":0,"rejectOp":0}
 ]}
 -->
