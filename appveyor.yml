@@ -23,6 +23,10 @@ environment:
 
 build_script:
   - travis-tool.sh install_r curl
+  - travis-tool.sh install_github ropensci/beautier
+  - travis-tool.sh install_github ropensci/tracerer
+  - travis-tool.sh install_github ropensci/beastier
+  - travis-tool.sh install_github ropensci/mauricer
   - travis-tool.sh install_github ropensci/babette
   - travis-tool.sh install_github Giappo/mbd
   - travis-tool.sh install_github jimhester/covr
@@ -41,11 +45,7 @@ test_script:
   - travis-tool.sh run_tests
 
 after_test:
-  # Delete all previous results
-  - rm -rf example_17_314
-  # Go!
-  - Rscript example_17.R
-  # Check if all files are created
+  - Rscript example_3.R
 
 on_failure:
   - 7z a failure.zip *.Rcheck\*
